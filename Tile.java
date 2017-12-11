@@ -20,40 +20,40 @@ public class Tile implements MouseListener
     switch (typeOfTerrain) 
     {
       case GRASS_TILE:icon.setIcon( new ImageIcon(
-                            "e:/Interesting Name/assets/Tiles/GrassTile.png"));
+                      getClass().getResource("../assets/Tiles/GrassTile.png")));
                       resource = generateTileResources(Resource.Type.SULFUR,25,
                                                        Resource.Type.COWS,50,
                                                        Resource.Type.NOTHING);
                       name = "Grass Tile";
                       break;
       case GROUND_TILE:icon.setIcon( new ImageIcon(
-                            "e:/Interesting Name/assets/Tiles/GroundTile.png"));
+                    getClass().getResource("../assets/Tiles/GroundTile.png")));
                        resource = generateTileResources(Resource.Type.COAL,60,
                                                         Resource.Type.IRON,30,
                                                         Resource.Type.OIL);
                        name = "Ground Tile";
                        break;
       case SAND_TILE:icon.setIcon( new ImageIcon(
-                              "e:/Interesting Name/assets/Tiles/SandTile.png"));
+                      getClass().getResource("../assets/Tiles/SandTile.png")));
                      resource = generateTileResources(Resource.Type.OIL,40,
                                                       Resource.Type.NOTHING);
                      name = "Sand Tile";
                      break;
       case WATER_TILE:icon.setIcon( new ImageIcon(
-                             "e:/Interesting Name/assets/Tiles/WaterTile.png"));
+                      getClass().getResource("../assets/Tiles/WaterTile.png")));
                       resource = generateTileResources(Resource.Type.OIL,30,
                                                        Resource.Type.FISH,30,
                                                        Resource.Type.NOTHING);
                       name = "Water Tile";
                       break;
       case ROCK_TILE:icon.setIcon( new ImageIcon(
-                              "e:/Interesting Name/assets/Tiles/RockTile.png"));
+                     getClass().getResource("../assets/Tiles/RockTile.png")));
                      resource = generateTileResources(Resource.Type.COAL,25,
                                            Resource.Type.IRON);
                      name = "Mountain Tile";
                      break;
       default: icon.setIcon( new ImageIcon( 
-                               "e:/Interesting Name/assets/Tiles/Default.png"));
+                        getClass().getResource("../assets/Tiles/Default.png")));
                resource = generateTileResources(Resource.Type.ERROR);
                name = "Error";
               break;
