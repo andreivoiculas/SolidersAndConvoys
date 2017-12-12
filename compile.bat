@@ -1,6 +1,10 @@
 set -v
-javac -d . MyMath.java
-javac -d . Resource.java
-javac -d . Tile.java
-javac -d . TileInfoPanel.java
-javac -d . TestGUI.java
+cd myUtil
+javac -cp .. -d .. MyMath.java
+cd ../game
+javac -cp .. -d .. Resource.java
+javac -cp .. -d .. Tile.java
+cd ../gui
+javac -cp .. -d .. TileInfoPanel.java
+javac -cp .. -d .. TestGUI.java
+cd ..
