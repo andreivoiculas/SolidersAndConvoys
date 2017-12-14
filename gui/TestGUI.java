@@ -8,9 +8,11 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import game.Tile;
 import java.awt.event.MouseListener;
+import game.Map;
 public class TestGUI extends JFrame
 {
   private final TileInfoPanel tileInfoPanel = new TileInfoPanel();
+  private final MapGUI mapGUI = new MapGUI(new Map(Map.Type.ISLAND,40,20));
   public static TestGUI randomName = new TestGUI();
   public TestGUI()
   {
@@ -19,16 +21,12 @@ public class TestGUI extends JFrame
     JPanel map = new JPanel();
     map.setLayout(new GridLayout(3,0,0,0));
     Container contents = getContentPane();
-    Tile rock,ground,grass;
-    for (int i = 1;i<= 10 ;i++ ) 
-    {
-      rock = new Tile(Tile.Type.ROCK_TILE);
-      ground = new Tile(Tile.Type.GROUND_TILE);
-      grass = new Tile(Tile.Type.GRASS_TILE);
-    map.add(rock.getIcon());
-    map.add(ground.getIcon());
-    map.add(grass.getIcon());
-    }
+    JPanel[][] mapPanels = mapGUI.getMapPanels();
+    for(int row = 0; row < mapPanels.length;row++)
+      for (int column = 0;column < mapPanels[row].length ;column++ ) 
+      {
+        contents.add(mapPanels[row][column]);  
+      } 
     setLayout(new BorderLayout());
     contents.add(map,BorderLayout.CENTER);
     contents.add(tileInfoPanel,BorderLayout.NORTH);

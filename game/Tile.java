@@ -13,10 +13,12 @@ public class Tile implements MouseListener
   
   private final Resource resource;
   private final JLabel icon = new JLabel();
-  private final String name; 
+  private final String name;
+  private final Type typeOfTerrain;
 
   public Tile(Type typeOfTerrain)
   {
+    this.typeOfTerrain = typeOfTerrain;
     switch (typeOfTerrain) 
     {
       case GRASS_TILE:icon.setIcon( new ImageIcon(
@@ -139,6 +141,10 @@ public class Tile implements MouseListener
   {
     return resource.getValue();
   }//resource value accesor
+  public Type getType()
+  {
+    return typeOfTerrain;
+  }
 
   public void mouseEntered(MouseEvent e) 
   {
