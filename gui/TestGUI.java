@@ -12,23 +12,23 @@ import game.Map;
 public class TestGUI extends JFrame
 {
   private final TileInfoPanel tileInfoPanel = new TileInfoPanel();
-  private final MapGUI mapGUI = new MapGUI(new Map(Map.Type.ISLAND,40,20));
+  private final MapGUI mapGUI = new MapGUI(new Map(Map.Type.ISLAND,20,20));
   public static TestGUI randomName = new TestGUI();
   public TestGUI()
   {
     setTitle("Test");
     setLocation(100,100);
     JPanel map = new JPanel();
-    map.setLayout(new GridLayout(3,0,0,0));
     Container contents = getContentPane();
     JPanel[][] mapPanels = mapGUI.getMapPanels();
     for(int row = 0; row < mapPanels.length;row++)
       for (int column = 0;column < mapPanels[row].length ;column++ ) 
       {
-        contents.add(mapPanels[row][column]);  
-      } 
+        map.add(mapPanels[row][column]);  
+      }
+      map.setLayout(new GridLayout(mapPanels.length,0)); 
     setLayout(new BorderLayout());
-    contents.add(map,BorderLayout.CENTER);
+    contents.add(map,BorderLayout.SOUTH);
     contents.add(tileInfoPanel,BorderLayout.NORTH);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     pack();
@@ -42,6 +42,7 @@ public class TestGUI extends JFrame
   {
     tileInfoPanel.changeDisplayedTile(tile.getName(),
                                       tile.getResourceName(),
+                                      tile.getResourceIcon(),
                                       tile.getValue());
     pack();
   }

@@ -2,11 +2,13 @@ package gui;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 public class TileInfoPanel extends JPanel
 {
   private JLabel resourceType = new JLabel("No tile selected yet"),
                  tileType  = new JLabel("No tile selected yet"),
-                 resourceValue = new JLabel("No tile selected yet");
+                 resourceValue = new JLabel("No tile selected yet"),
+                 resourceIcon = new JLabel("");
   /**
    * the default vesion of {@link #TileInfoPanel(Tile) TileInfoPanel}
    */
@@ -20,6 +22,7 @@ public class TileInfoPanel extends JPanel
     namePanel.setLayout(new GridLayout(1,0));
     resNamePanel.add(new JLabel("Resource Type: "));
     resNamePanel.add(resourceType);
+    resNamePanel.add(resourceIcon);
     resNamePanel.setLayout(new GridLayout(1,0));
     resValuePanel.add(new JLabel("Resource Amount: "));
     resValuePanel.add(resourceValue);
@@ -29,10 +32,13 @@ public class TileInfoPanel extends JPanel
     add(resValuePanel);
     setLayout(new GridLayout(3,0));
   }
-  public void changeDisplayedTile(String tileName,String resName,int resValue)
+  public void changeDisplayedTile(String tileName,String resName,
+                                  ImageIcon resIcon,int resValue)
   {
     tileType.setText(tileName);
     resourceType.setText(resName);
+    JLabel icon = new JLabel("");
+    resourceIcon.setIcon(resIcon);
     resourceValue.setText("" + resValue);
   }  
 }

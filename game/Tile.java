@@ -127,6 +127,10 @@ public class Tile implements MouseListener
     return resource.getResourceName();
   }//resource accesor
 
+  public ImageIcon getResourceIcon()
+  {
+    return resource.getResourceIcon();
+  }
   public JLabel getIcon()
   {
     return icon;

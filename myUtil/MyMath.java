@@ -22,5 +22,16 @@ public class MyMath
    return Math.round((float)Math.random()*maxValue);
   }
 
+  public static int roundedRandomValueBetween(int minValue,int maxValue)
+  {
+    boolean tooSmall = true;
+    int number = 0;
+    while(tooSmall)
+    {
+      number = Math.round((float)Math.random()*maxValue);
+      tooSmall = number < minValue;
+    }
+    return number;
+  }
 
 }

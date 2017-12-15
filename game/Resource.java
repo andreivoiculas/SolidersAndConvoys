@@ -19,7 +19,7 @@ public class Resource
   }
   private final String name;
   private final int value;
-  private final JLabel icon = new JLabel();
+  private final ImageIcon icon;
   private final Type resType;
   public Resource(Type resType,int value)
   {
@@ -27,49 +27,58 @@ public class Resource
     {
       case WOOD: name = "Wood";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case IRON: name = "Iron";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case COAL: name = "Coal";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case OIL: name = "Oil";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case FISH: name = "Fish";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case COWS: name = "Cattle";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case SULFUR: name = "Sulfur";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       case NOTHING: name = "No resource";
                  this.value = value;
-                 icon.setIcon(new ImageIcon("Default.png"));
+                 icon = new ImageIcon(
+                  getClass().getResource("../assets/Resources/Default.png"));
                  this.resType = resType;
                  break;
       default: System.out.println("The is no resource" + 
                                           " that matches description.");
                name = "NullName";
                this.value = 0;
-               icon.setIcon(new ImageIcon("Default.png"));
+               icon = new ImageIcon(
+                getClass().getResource("../assets/Resources/Default.png"));
                this.resType = Type.ERROR;
                break;
     }//switch
@@ -78,6 +87,12 @@ public class Resource
   {
     return name; 
   }
+
+  public ImageIcon getResourceIcon()
+  {
+    return icon; 
+  }
+
   public int getValue()
   {
     return value;
